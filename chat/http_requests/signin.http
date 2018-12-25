@@ -1,0 +1,12 @@
+POST http://localhost:8000/api/users/signin
+Accept: application/json
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "email": "test@test.com",
+  "password": "qwerty12"
+}
+
+###
+

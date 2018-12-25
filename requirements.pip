@@ -1,0 +1,8 @@
+falcon
+gunicorn
+gevent
+psycopg2-binary
+SQLAlchemy
+passlib
+PyJWT
+cerberus

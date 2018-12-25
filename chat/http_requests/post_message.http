@@ -1,0 +1,11 @@
+POST http://localhost:8000/api/messages
+Accept: application/json
+Content-Type: application/json
+Cache-Control: no-cache
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzcsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSJ9.EEMaDY2wJg3KksTRQTOl1chI4bWALsJTLM6iuRgFD8A
+
+{
+  "text": "Hello world3!"
+}
+
+###
