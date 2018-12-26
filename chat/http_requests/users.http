@@ -1,4 +1,4 @@
-GET http://localhost:8100/api/messages
+GET http://localhost:8100/api/users
 Accept: application/json
 Content-Type: application/json
 Cache-Control: no-cache

@@ -1,4 +1,4 @@
-POST http://localhost:8000/api/messages
+POST http://localhost:8100/api/messages
 Accept: application/json
 Content-Type: application/json
 Cache-Control: no-cache

@@ -16,22 +16,20 @@ services:
       context: .
       dockerfile: ./bin/service-api.dockerfile
     ports:
-    - 8000:8100
+    - 8100:8000
     volumes:
     - ./chat:/opt/application/chat
-#    env_file:
-#    - docker-compose.env
     environment:
       APP_GUNICORN_USE: chat.app:app
       APP_MIGRATE: 1
       APP_SECRET_KEY: qw93f846t5nbgvqfu4b3rnf
       POSTGRES_HOST: database
 
-  frontend:
-    build:
-      context: .
-      dockerfile: ./bin/frontend.dockerfile
-    ports:
-    - 8000:8000
-    volumes:
-    - ./frontend:/opt/application
+#  frontend:
+#    build:
+#      context: .
+#      dockerfile: ./bin/frontend.dockerfile
+#    ports:
+#    - 8000:8000
+#    volumes:
+#    - ./frontend:/opt/application
