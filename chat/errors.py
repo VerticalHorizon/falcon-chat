@@ -15,38 +15,43 @@ ERR_UNKNOWN = {
 
 ERR_AUTH_REQUIRED = {
     'status': falcon.HTTP_401,
-    'code': 99,
+    'code': 401,
     'title': 'Authentication Required'
 }
 
 ERR_INVALID_PARAMETER = {
     'status': falcon.HTTP_400,
-    'code': 88,
+    'code': 400,
     'title': 'Invalid Parameter'
 }
 
 ERR_DATABASE_ROLLBACK = {
     'status': falcon.HTTP_500,
-    'code': 77,
+    'code': 500,
     'title': 'Database Rollback Error'
 }
 
 ERR_NOT_SUPPORTED = {
     'status': falcon.HTTP_404,
-    'code': 10,
+    'code': 404,
     'title': 'Not Supported'
 }
 
-
 ERR_USER_NOT_EXISTS = {
     'status': falcon.HTTP_404,
-    'code': 21,
+    'code': 404,
     'title': 'User Not Exists'
+}
+
+ERR_MESSAGE_NOT_EXISTS = {
+    'status': falcon.HTTP_404,
+    'code': 404,
+    'title': 'Message Not Exists'
 }
 
 ERR_PASSWORD_NOT_MATCH = {
     'status': falcon.HTTP_400,
-    'code': 22,
+    'code': 400,
     'title': 'Password Not Match'
 }
 
@@ -101,6 +106,12 @@ class DatabaseError(AppError):
 class UserNotExistsError(AppError):
     def __init__(self, description=None):
         super().__init__(ERR_USER_NOT_EXISTS)
+        self.error['description'] = description
+
+
+class MessageNotExistsError(AppError):
+    def __init__(self, description=None):
+        super().__init__(ERR_MESSAGE_NOT_EXISTS)
         self.error['description'] = description
 
 

@@ -4,7 +4,7 @@ from passlib.hash import pbkdf2_sha256
 import jwt
 from .base import BaseResource
 from ..models import User
-from ..errors import PasswordNotMatch, InvalidParameterError
+from ..errors import PasswordNotMatch, InvalidParameterError, UserNotExistsError
 from ..config import SECRET_KEY
 
 
@@ -46,7 +46,7 @@ class Collection(BaseResource):
             obj = [user.__json__() for user in user_dbs]
             self.on_success(res, obj)
         else:
-            raise Exception("No users found!")
+            raise UserNotExistsError("It seems that there are no users in DB yet.")
 
 
 class Signin(BaseResource):
@@ -78,4 +78,9 @@ class Signin(BaseResource):
 
             self.session.add(user)
             self.session.commit()
-            self.on_success(res, None)
+
+            payload = {
+                "id": user.id,
+                "email": user.email,
+            }
+            self.on_success(res, jwt.encode(payload, SECRET_KEY).decode('utf-8'))
